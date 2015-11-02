@@ -5,17 +5,17 @@ public class Arrow : MonoBehaviour {
     public bool rightToLeft; //all arrows start off right to left.
     public MakiGame makiGame; //handle to the makigame so we don't have to look it up.
     public bool beaten; //if this arrow has been beaten this game.
-    private bool clicked; //if this arrow is currently being swiped on
-    private int lastXPos;
-    private int lastYPos;
+    public bool clicked; //if this arrow is currently being swiped on
+    private float lastXPos;
+    private float lastYPos;
 
     // Use this for initialization
     void Start () {
-        rightToLeft = true;
+        //rightToLeft = true;
         clicked = false;
         lastXPos = 0;
         lastYPos = 0;
-        makiGame = null;
+        //makiGame = null;
         beaten = false;
     }
 
@@ -55,6 +55,8 @@ public class Arrow : MonoBehaviour {
                 if(hit.rigidbody != null && hit.rigidbody == this.GetComponent<Rigidbody>()){
                     clicked = true;
                     Debug.Log("Starting swipe on arrow...");
+                    lastYPos = Input.mousePosition.y;
+                    lastXPos = Input.mousePosition.x;
                     return;
                 }
             }
@@ -72,20 +74,26 @@ public class Arrow : MonoBehaviour {
     void onMouseHold(){
         if(!clicked){ return; }
         if(Input.mousePosition.y > lastYPos + 30 || Input.mousePosition.y < lastYPos - 30){ //decide how strict to be about vertical movement
+            Debug.Log("Too much vertical movement!");
             if(makiGame != null){
                 makiGame.failGame();
             }
         }
-        else if(rightToLeft && Input.mousePosition.x < lastXPos + 10 ){
+        /*
+        else if(rightToLeft && Input.mousePosition.x > lastXPos + 20 ){
+            Debug.Log("Horizontal movement backwards!");
             if(makiGame != null){
                 makiGame.failGame();
             }
         }
-        else if(!rightToLeft && Input.mousePosition.x > lastXPos + 10 ){
+        else if(!rightToLeft && Input.mousePosition.x < lastXPos + 20 ){
+            Debug.Log("Horizontal movement backwards!");
             if(makiGame != null){
                 makiGame.failGame();
             }
         }
+        */
+        lastXPos = Input.mousePosition.x;
     }
 
 }

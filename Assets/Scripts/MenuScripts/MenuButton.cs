@@ -3,12 +3,14 @@ using System.Collections;
 
 public class MenuButton : MonoBehaviour {
     private bool clicked = false;
-    public Menu menu;
+    public SushiMenu menu;
     public string gametag;
     // Use this for initialization
     void Start () {
-        menu = null;
-        gametag = null;
+        Debug.Log("Creating a MenuButton...");
+        //menu = null;
+        //gametag = null;
+        Debug.Log("Done making MenuButton.");
     }
 
     // Update is called once per frame
@@ -33,7 +35,15 @@ public class MenuButton : MonoBehaviour {
             if(clicked == true){
                 clicked = false;
                 Debug.Log("Click ended on button. Making mini game...");
+                Debug.Log(gametag);
+                if(menu == null){
+                    Debug.Log("No reference to menu script!");
+                }
+                if(gametag == null){
+                    Debug.Log("No gametag!");
+                }
                 if(menu != null && gametag != null){
+                    Debug.Log("Destroying menu...");
                     menu.destroyMenu();
 
 

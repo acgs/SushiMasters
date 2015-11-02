@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Menu : MonoBehaviour {
+public class SushiMenu : MonoBehaviour {
     private GameObject[] buttons = null;
     // Use this for initialization
     void Start () {
+        Debug.Log("Making SushiMenu...");
         buttons = GameObject.FindGameObjectsWithTag("sushiselectmenu");
         //is there a better way to do this?
         buttons[0].GetComponent<MenuButton>().gametag = "nigirigame";
@@ -13,6 +14,7 @@ public class Menu : MonoBehaviour {
         foreach(GameObject button in buttons){
             button.GetComponent<MenuButton>().menu = this;
         }
+        Debug.Log("Done making SushiMenu.");
     }
 
     // Update is called once per frame

@@ -3,8 +3,10 @@ using System.Collections;
 
 public class MakiGame : MonoBehaviour {
     private GameObject[] arrows;
+    public SushiMenu menu;
     // Use this for initialization
     void Start () {
+        menu = GameObject.FindGameObjectsWithTag("sushimenu")[0].GetComponent<SushiMenu>();
        arrows = GameObject.FindGameObjectsWithTag("makiarrow");
        foreach(GameObject arrow in arrows){
             arrow.GetComponent<Arrow>().setMakiGame(this);
@@ -44,6 +46,8 @@ public class MakiGame : MonoBehaviour {
             arrow.GetComponent<Collider>().enabled = false;
             arrow.GetComponent<Arrow>().beaten = false;
         }
+        menu.buildMenu();
+
     }
     public void beatArrow(){
         //Called when `arrow` is beaten. This checks for win condition.
