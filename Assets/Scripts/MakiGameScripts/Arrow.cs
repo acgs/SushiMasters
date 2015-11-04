@@ -43,23 +43,19 @@ public class Arrow : MonoBehaviour {
         }
     }
     void onMouseClickDown(){
-        Debug.Log("Mouse clicked in arrow! Casting ray...");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, 100)){
-            Debug.Log("Cast ray. Checking if we hit this collider...");
             if(hit.collider != null){
                 if(rightToLeft){
                     if(hit.collider == transform.Find("right_collider").GetComponent<Collider>()){
                         clicked = true;
-                        Debug.Log("Starting swipe on arrow...");
                         return;
                     }
                 }
                 else{
                     if(hit.collider == transform.Find("left_collider").GetComponent<Collider>()){
                         clicked = true;
-                        Debug.Log("Starting swipe on arrow...");
                         return;
                     }
                 }
@@ -68,7 +64,6 @@ public class Arrow : MonoBehaviour {
     }
     void onMouseClickUp(){
         if(!clicked){return;}
-        Debug.Log("In arrow onMouseClickUp.");
         //raycast to see if we ended on the correct collider
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -91,9 +86,7 @@ public class Arrow : MonoBehaviour {
             }
             //if we make it this far, then the arrow is beat.
             clicked = false;
-            Debug.Log("Ended swipe. Beat this arrow");
             this.GetComponent<Renderer>().enabled = false;//getComponent<Renderer>.enabled = false;
-            //this.GetComponent<Collider>().enabled = false;//getComponent<Collider>.enabled = false;
             foreach(Transform child in transform){
                 child.gameObject.GetComponent<Collider>().enabled = false;
             }
@@ -108,31 +101,23 @@ public class Arrow : MonoBehaviour {
     }
     void onMouseHold(){
         if(!clicked){ return; }
-        Debug.Log("In arrow onMouseHold.");
 
         //just check that we're still colliding with body collider
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.Log("Casting ray from mouse position:");
-        Debug.Log(Input.mousePosition);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, 100)){
             if(hit.collider == null){
-                Debug.Log("No collider hit! Failed game.");
                 if(makiGame != null){
                     makiGame.failGame();
                 }
                 return;
             }
             if(hit.collider != transform.Find("right_collider").GetComponent<Collider>() && hit.collider != transform.Find("left_collider").GetComponent<Collider>() && hit.collider != transform.Find("body").GetComponent<Collider>()){
-                Debug.Log("Collided with something besides this arrow's colliders! Failed game.");
                 makiGame.failGame();
                 return;
             }
-            Debug.Log("Collided with one of this arrow's colliders:");
-            Debug.Log(hit.collider);
             return;
         }
-        Debug.Log("No ray cast hit. Failed game.");
         if(makiGame != null){
             makiGame.failGame();
         }

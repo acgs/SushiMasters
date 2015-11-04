@@ -48,7 +48,7 @@ public class MenuButton : MonoBehaviour {
 
                     //think of better way to do this
                     if(gametag == "temakigame"){
-                        //GameObject.FindGameObjectsWithTag(gametag)[0].GetComponent<gametag>().buildGame();
+                        GameObject.FindGameObjectsWithTag(gametag)[0].GetComponent<TemakiGame>().buildGame();
                     }
                     if(gametag == "makigame"){
                         GameObject.FindGameObjectsWithTag(gametag)[0].GetComponent<MakiGame>().buildGame();
