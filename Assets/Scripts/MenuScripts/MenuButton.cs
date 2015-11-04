@@ -17,9 +17,6 @@ public class MenuButton : MonoBehaviour {
     void Update () {
 
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("Mouse clicked! ");
-            Debug.Log("Selecting minigame:");
-            Debug.Log(gametag);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
                 if(Physics.Raycast(ray, out hit, 100)){
@@ -27,6 +24,8 @@ public class MenuButton : MonoBehaviour {
                     if(hit.rigidbody != null && hit.rigidbody == GetComponent<Rigidbody>()){
                         clicked = true;
                         Debug.Log("Got click on button");
+                        Debug.Log("Selecting minigame:");
+                        Debug.Log(gametag);
                         return;
                     }
                 }

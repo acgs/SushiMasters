@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SushiMenu : MonoBehaviour {
-    private GameObject[] buttons = null;
+    private List<GameObject> buttons = null;
     // Use this for initialization
     void Start () {
         Debug.Log("Making SushiMenu...");
-        buttons = GameObject.FindGameObjectsWithTag("sushiselectmenu");
+        buttons = new List<GameObject>();
+        foreach(Transform child in transform){
+            buttons.Add(child.gameObject);
+        }
         //is there a better way to do this?
         buttons[0].GetComponent<MenuButton>().gametag = "nigirigame";
         buttons[1].GetComponent<MenuButton>().gametag = "makigame";

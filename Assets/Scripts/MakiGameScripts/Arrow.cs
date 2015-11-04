@@ -6,15 +6,11 @@ public class Arrow : MonoBehaviour {
     public MakiGame makiGame; //handle to the makigame so we don't have to look it up.
     public bool beaten; //if this arrow has been beaten this game.
     public bool clicked; //if this arrow is currently being swiped on
-    private float lastXPos;
-    private float lastYPos;
 
     // Use this for initialization
     void Start () {
         //rightToLeft = true;
         clicked = false;
-        lastXPos = 0;
-        lastYPos = 0;
         //makiGame = null;
         beaten = false;
     }
@@ -47,53 +43,99 @@ public class Arrow : MonoBehaviour {
         }
     }
     void onMouseClickDown(){
-        Debug.Log("Mouse clicked! Casting ray...");
+        Debug.Log("Mouse clicked in arrow! Casting ray...");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 100)){
-                Debug.Log("Cast ray. Checking if we hit this rigidbody...");
-                if(hit.rigidbody != null && hit.rigidbody == this.GetComponent<Rigidbody>()){
-                    clicked = true;
-                    Debug.Log("Starting swipe on arrow...");
-                    lastYPos = Input.mousePosition.y;
-                    lastXPos = Input.mousePosition.x;
+        if(Physics.Raycast(ray, out hit, 100)){
+            Debug.Log("Cast ray. Checking if we hit this collider...");
+            if(hit.collider != null){
+                if(rightToLeft){
+                    if(hit.collider == transform.Find("right_collider").GetComponent<Collider>()){
+                        clicked = true;
+                        Debug.Log("Starting swipe on arrow...");
+                        return;
+                    }
+                }
+                else{
+                    if(hit.collider == transform.Find("left_collider").GetComponent<Collider>()){
+                        clicked = true;
+                        Debug.Log("Starting swipe on arrow...");
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    void onMouseClickUp(){
+        if(!clicked){return;}
+        Debug.Log("In arrow onMouseClickUp.");
+        //raycast to see if we ended on the correct collider
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, 100)){
+            if(rightToLeft){
+                if(hit.collider != transform.Find("left_collider").GetComponent<Collider>()){
+                    if(makiGame != null){
+                        makiGame.failGame();
+                    }
                     return;
                 }
             }
-    }
-    void onMouseClickUp(){
-        if(clicked == true){
+            else{
+                if(hit.collider != transform.Find("right_collider").GetComponent<Collider>()){
+                    if(makiGame != null){
+                        makiGame.failGame();
+                    }
+                    return;
+                }
+            }
+            //if we make it this far, then the arrow is beat.
             clicked = false;
             Debug.Log("Ended swipe. Beat this arrow");
             this.GetComponent<Renderer>().enabled = false;//getComponent<Renderer>.enabled = false;
-            this.GetComponent<Collider>().enabled = false;//getComponent<Collider>.enabled = false;
+            //this.GetComponent<Collider>().enabled = false;//getComponent<Collider>.enabled = false;
+            foreach(Transform child in transform){
+                child.gameObject.GetComponent<Collider>().enabled = false;
+            }
             beaten = true;
             makiGame.beatArrow();
+            return;
+        }
+        //fail because we didn't detect a hit
+        if(makiGame != null){
+            makiGame.failGame();
         }
     }
     void onMouseHold(){
         if(!clicked){ return; }
-        if(Input.mousePosition.y > lastYPos + 30 || Input.mousePosition.y < lastYPos - 30){ //decide how strict to be about vertical movement
-            Debug.Log("Too much vertical movement!");
-            if(makiGame != null){
-                makiGame.failGame();
+        Debug.Log("In arrow onMouseHold.");
+
+        //just check that we're still colliding with body collider
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.Log("Casting ray from mouse position:");
+        Debug.Log(Input.mousePosition);
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, 100)){
+            if(hit.collider == null){
+                Debug.Log("No collider hit! Failed game.");
+                if(makiGame != null){
+                    makiGame.failGame();
+                }
+                return;
             }
-        }
-        /*
-        else if(rightToLeft && Input.mousePosition.x > lastXPos + 20 ){
-            Debug.Log("Horizontal movement backwards!");
-            if(makiGame != null){
+            if(hit.collider != transform.Find("right_collider").GetComponent<Collider>() && hit.collider != transform.Find("left_collider").GetComponent<Collider>() && hit.collider != transform.Find("body").GetComponent<Collider>()){
+                Debug.Log("Collided with something besides this arrow's colliders! Failed game.");
                 makiGame.failGame();
+                return;
             }
+            Debug.Log("Collided with one of this arrow's colliders:");
+            Debug.Log(hit.collider);
+            return;
         }
-        else if(!rightToLeft && Input.mousePosition.x < lastXPos + 20 ){
-            Debug.Log("Horizontal movement backwards!");
-            if(makiGame != null){
-                makiGame.failGame();
-            }
+        Debug.Log("No ray cast hit. Failed game.");
+        if(makiGame != null){
+            makiGame.failGame();
         }
-        */
-        lastXPos = Input.mousePosition.x;
     }
 
 }
