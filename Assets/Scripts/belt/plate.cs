@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class plate : MonoBehaviour {
-
+    public bool hasSushi = false;
     void Start () {
         iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath("belt_path"), "time", 10, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.loop)); //
     }

@@ -14,6 +14,8 @@ TagManager:
   - nori
   - rice
   - fish
+  - plate
+  - plate_collider
   layers:
   - Default
   - TransparentFX

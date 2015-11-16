@@ -21,7 +21,7 @@ public class plate_builder : MonoBehaviour {
             Transform plateClone = (Transform) Instantiate(plate_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
             nextUsage = Time.time + delay;
             plateClone.GetComponent<plate>().enabled = true;
-            plateClone.GetComponent<Collider>().enabled = true;
+            plateClone.GetChild(0).GetComponent<Collider>().enabled = true;
             numPlates--;
 
         }

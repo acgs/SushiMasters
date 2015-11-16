@@ -4,6 +4,10 @@ using System.Collections;
 public class MakiGame : MonoBehaviour {
     private GameObject[] arrows;
     public SushiMenu menu;
+    public float initial_xPos = 0f;
+    public float initial_yPos = 2.159578f;
+    public float initial_zPos = 0.7407658f;
+    public Transform maki_prefab;
     // Use this for initialization
     void Start () {
         menu = GameObject.FindGameObjectsWithTag("sushimenu")[0].GetComponent<SushiMenu>();
@@ -42,6 +46,7 @@ public class MakiGame : MonoBehaviour {
     }
     public void winGame(){
         Debug.Log("Beat the Maki game!");
+        Transform makiClone = (Transform) Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
         cleanup();
     }
     void cleanup(){
