@@ -26,6 +26,7 @@ public class sushi_handler : MonoBehaviour {
                         if(!plate.transform.parent.GetComponent<plate>().hasSushi){
                             //if so, attach this sushi to the plate.
                             this.plate = plate.transform.parent;
+                            this.plate.GetComponent<plate>().hasSushi = true;
                             moving = true;
                             //display this sushi
                             GetComponent<SpriteRenderer>().enabled = true;
@@ -41,5 +42,10 @@ public class sushi_handler : MonoBehaviour {
         //then we're moving. Just move our position to our plate's position
         transform.position = this.plate.transform.position;
 
+    }
+
+    void onDestroy(){
+        //reset the plate's hasSushi
+        this.plate.GetComponent<plate>().hasSushi = false;
     }
 }

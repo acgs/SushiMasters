@@ -8,19 +8,10 @@ public class CustomerQueue : MonoBehaviour {
     public Transform salaryman_prefab;
     public Transform student_prefab;
     public Transform critic_prefab;
-    public string[] customers;
+    protected string[] customers;
     public float[] customer_times;
     public int[] customer_chair;
     public int customer_index = 0;
-    // Use this for initialization
-    void Start () {
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-
-    }
 
     public Transform getCustomerPrefab(string prefabName){
         if(prefabName == "tourist"){

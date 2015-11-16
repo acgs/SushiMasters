@@ -16,6 +16,8 @@ TagManager:
   - fish
   - plate
   - plate_collider
+  - makisushi
+  - temakisushi
   layers:
   - Default
   - TransparentFX

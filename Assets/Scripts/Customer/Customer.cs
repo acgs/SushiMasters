@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour {
 
     }
 
+
+
     public void startPath(string pathName){
         iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName), "time", 2, "easetype", iTween.EaseType.linear)); //
     }
