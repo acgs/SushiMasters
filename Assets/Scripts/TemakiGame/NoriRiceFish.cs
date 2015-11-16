@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class NoriRiceFish : MonoBehaviour {
+public class NoriRiceFish : MonoBehaviour{
     public bool clicked;
     public TemakiGame temakigame;
     public Vector3 screenPoint;
@@ -19,10 +20,12 @@ public class NoriRiceFish : MonoBehaviour {
             onMouseClickDown();
             return;
         }
+
         if(Input.GetMouseButtonUp(0)){
             onMouseClickUp();
             return;
         }
+
         if(Input.GetMouseButton(0)){ //holding down (swiping)
             onMouseHold();
             return;
@@ -31,9 +34,11 @@ public class NoriRiceFish : MonoBehaviour {
 
     void onMouseClickDown(){
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, 100)){
-            if(hit.collider != null){
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(ray, 100);
+
+        if(hits.Length > 0){
+            foreach(RaycastHit hit in hits){
                 if(hit.collider == GetComponent<Collider>()){
                     clicked = true;
                     screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -44,25 +49,23 @@ public class NoriRiceFish : MonoBehaviour {
         }
     }
 
-
-
     void onMouseHold(){
         if(!clicked){ return; }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, 100)){
-            if(hit.collider != null){
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(ray, 100);
+
+        if(hits.Length > 0){
+            foreach(RaycastHit hit in hits){
                 if(hit.collider == GetComponent<Collider>()){
-                   Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-                   Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-                   transform.position = curPosition;
+                    Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+                    Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+                    transform.position = curPosition;
                     return;
                 }
             }
-
         }
-        clicked = false;
     }
 
 

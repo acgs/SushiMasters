@@ -19,9 +19,11 @@ public class plate_builder : MonoBehaviour {
         if (numPlates > 0 && Time.time > nextUsage){
             //instantiate plate prefab and set its script to enabled
             Transform plateClone = (Transform) Instantiate(plate_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
-            plateClone.GetComponent<plate>().enabled = true;
-            numPlates--;
             nextUsage = Time.time + delay;
+            plateClone.GetComponent<plate>().enabled = true;
+            plateClone.GetComponent<Collider>().enabled = true;
+            numPlates--;
+
         }
     }
 }
