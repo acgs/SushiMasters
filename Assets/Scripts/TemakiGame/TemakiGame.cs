@@ -4,7 +4,10 @@ using System.Collections;
 public class TemakiGame : MonoBehaviour {
     public SushiMenu menu;
     public int ingredientIndex = 0;
-
+    public float initial_xPos = 0f;
+    public float initial_yPos = 2.159578f;
+    public float initial_zPos = 0.7407658f;
+    public Transform temaki_prefab;
     // Use this for initialization
     void Start () {
         menu = GameObject.FindGameObjectsWithTag("sushimenu")[0].GetComponent<SushiMenu>();
@@ -65,6 +68,7 @@ public class TemakiGame : MonoBehaviour {
     }
     public void winGame(){
         Debug.Log("Beat the Temaki game!");
+        Transform temakiClone = (Transform) Instantiate(temaki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
         ingredientIndex = 0;
         cleanup();
     }
