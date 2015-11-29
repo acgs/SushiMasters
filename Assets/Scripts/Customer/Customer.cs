@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Customer : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
+    private bool waitingOnChair;
+    private bool startedMove;
+    public string pathName;
 
     /*These attributes get default values from the prefab */
     public string type;
@@ -13,6 +16,9 @@ public class Customer : MonoBehaviour {
     public Sprite angrySprite;
     // Use this for initialization
     void Start () {
+        transform.GetChild(0).GetComponent<Collider>().enabled = false;
+        waitingOnChair = true;
+        startedMove = false;
         currentScore = initialScore;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if(spriteRenderer.sprite == null){
@@ -22,6 +28,20 @@ public class Customer : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if(!startedMove && canMove()){
+            startPath(pathName);
+        }
+        if(spriteRenderer == null){
+            Debug.Log("ERROR: spriteRenderer is null!");
+            Debug.Log("Trying to reget component...");
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        if(normalSprite == null){
+            Debug.Log("ERROR: normalSprite is null!");
+        }
+        if(angrySprite == null){
+            Debug.Log("ERROR: angrySprite is null!");
+        }
         if(currentScore <= initialScore * 0.2f && spriteRenderer.sprite != angrySprite){
             spriteRenderer.sprite = angrySprite;
         }
@@ -34,9 +54,40 @@ public class Customer : MonoBehaviour {
 
     }
 
+    private bool canMove(){
+        /*
+        We check if our chair has a customer in it already. If so, we keep waiting.
+        */
+        //Debug.Log("Checking if we can move to our chair with tag");
+        //Debug.Log(pathName);
+        if(pathName == null || pathName == "")
+            return false;
+        GameObject chair = GameObject.FindGameObjectsWithTag(pathName)[0];
+        if(chair == null){
+            Debug.Log("ERROR! NO CHAIR WITH TAG");
+            Debug.Log(pathName);
+            Debug.Log("COULD BE FOUND! NOT MOVING!");
+            return false;
+        }
+        if(chair.GetComponent<chair>().hasCustomer){
+            //Debug.Log("Chair has customer in it still!");
+            return false;
+        }
 
+        //else, we can start moving and set waitingOnChair false
+        chair.GetComponent<chair>().hasCustomer = true;
+        waitingOnChair = false;
+        return true;
+    }
+
+    private void onPathEnd(){
+        /*Just a callback for the iTween path to call to activate the collider when we stop moving*/
+        transform.GetChild(0).GetComponent<Collider>().enabled = true;
+    }
 
     public void startPath(string pathName){
-        iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName), "time", 2, "easetype", iTween.EaseType.linear)); //
+        startedMove = true;
+        iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName), "time", 2, "easetype", iTween.EaseType.linear,
+            "onComplete","onPathEnd")); //
     }
 }
