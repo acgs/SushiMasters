@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.15957808, z: .74076581}
-  m_LocalScale: {x: .0811763108, y: .0811763406, z: .0811763406}
+  m_LocalPosition: {x: 0, y: 1.886096, z: .74076581}
+  m_LocalScale: {x: -.0811763108, y: .0811763406, z: .0811763406}
   m_Children:
   - {fileID: 482758}
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9b211278f2b0e44edbddb51c6431c925, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2cd54a4acce247e588df4635acf651b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -117,7 +117,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: 2.15957808
+      value: 1.886096
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
@@ -130,6 +130,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: plate_collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2cd54a4acce247e588df4635acf651b,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: .0811763406
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: -.0811763108
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
