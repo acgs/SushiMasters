@@ -49,6 +49,7 @@ public class Customer : MonoBehaviour {
         if(currentScore <= 0.0f){
             //destroy this customer
             Destroy(transform.gameObject);
+            chair.GetComponent<chair>().hasCustomer = false;
         }
         currentScore -= scoreDeclineRate * Time.deltaTime;
 
