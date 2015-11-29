@@ -3,15 +3,15 @@ using System.Collections;
 
 public class TestQueue : CustomerQueue {
     void Start() {
-        customers = new string[2];
+        customers = new string[1];
         customers[0] = "tourist";
-        customers[1] = "tourist";
-        customer_times = new float[2];
+        //customers[1] = "tourist";
+        customer_times = new float[1];
         customer_times[0] = 10.0f;
-        customer_times[1] = 20.0f;
-        customer_chair = new int[2];
+        //customer_times[1] = 20.0f;
+        customer_chair = new int[1];
         customer_chair[0] = 2;
-        customer_chair[1] = 2;
+        //customer_chair[1] = 2;
     }
 
     // Update is called once per frame
