@@ -9,6 +9,9 @@ public class Level1Queue : TestQueue {
         customers = new string[numCustomers];
         for(int i = 0; i < numCustomers; i++){
             customers[i] = "tourist";
+            if(i % 6 == 0){
+                customers[i] = "critic";
+            }
         }
         customer_times = new float[numCustomers];
         float timeDelay = 3.5f;
