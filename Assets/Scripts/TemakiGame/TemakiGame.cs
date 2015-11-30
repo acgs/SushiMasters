@@ -21,11 +21,44 @@ public class TemakiGame : MonoBehaviour {
 
     public void buildGame(){
         GameObject.FindGameObjectWithTag("temakibackground").GetComponent<Renderer>().enabled = true;
+        //randomly place children in one of three locations
+        int i = 0;
+
+        Transform[] allChildren = (Transform[]) GetComponentsInChildren<Transform>().Clone();
+
+        Transform[] noriricefishChildren = new Transform[3];
+        foreach(Transform child in allChildren){
+            if(child.gameObject.tag == "fish" ||
+                child.gameObject.tag == "nori" ||
+                child.gameObject.tag == "rice"){
+                noriricefishChildren[i] = child;
+                i++;
+            }
+        }
+        i=0;
+
+        //Debug.Log(noriricefishChildren);
+        ShuffleArray(noriricefishChildren);
+
+        //Debug.Log(noriricefishChildren);
         foreach(Transform child in transform){
             child.gameObject.GetComponent<Collider>().enabled = true;
             child.GetComponent<Renderer>().enabled = true;
+            if(child.gameObject.tag != "prepboard"){
+                child.transform.position = noriricefishChildren[i].GetComponent<NoriRiceFish>().initialPosition;
+                i++;
+            }
         }
     }
+
+    public static void ShuffleArray<T>(T[] arr) {
+        for (int i = arr.Length - 1; i > 0; i--) {
+            int r = Random.Range(0, i + 1);
+            T tmp = arr[i];
+            arr[i] = arr[r];
+            arr[r] = tmp;
+        }
+     }
 
 
     public void ingredientOnBoard(GameObject ingredient){
