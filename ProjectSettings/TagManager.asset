@@ -22,7 +22,12 @@ TagManager:
   - chair2_path
   - chair3_path
   - chair4_path
-  - New Tag
+  - chair5_path
+  - chair6_path
+  - chair7_path
+  - chair8_path
+  - chair9_path
+  - chair10_path
   layers:
   - Default
   - TransparentFX
