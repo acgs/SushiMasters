@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.48044205, z: .74076581}
+  m_LocalPosition: {x: 0, y: 1.886096, z: .74076581}
   m_LocalScale: {x: .0554082394, y: .0554082915, z: .0554082915}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sushiType: maki
   initial_xPos: 0
-  initial_yPos: 2.48044205
+  initial_yPos: 1.886096
   initial_zPos: .74076581
   plate: {fileID: 0}
   moving: 0
@@ -130,11 +130,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: 2.48044205
+      value: 1.886096
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initial_yPos
-      value: 2.48044205
+      value: 1.886096
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

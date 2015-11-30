@@ -4,13 +4,14 @@ using System.Collections;
 public class sushi_handler : MonoBehaviour {
     public string sushiType;
     public float initial_xPos = 0f;
-    public float initial_yPos = 2.159578f;
+    public float initial_yPos = 2.488018f;
     public float initial_zPos = 0.7407658f;
     public Transform plate;
     public bool moving = false;
     // Use this for initialization
     void Start () {
         Debug.Log("Created sushi!");
+        transform.position = new Vector3(initial_xPos, initial_yPos, initial_zPos);
     }
 
     // Update is called once per frame

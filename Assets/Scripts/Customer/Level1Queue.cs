@@ -11,7 +11,7 @@ public class Level1Queue : TestQueue {
             customers[i] = "tourist";
         }
         customer_times = new float[numCustomers];
-        float timeDelay = 1.5f;
+        float timeDelay = 3.5f;
 
         for(int i = 0; i < numCustomers; i++){
             customer_times[i] = 15.0f + timeDelay*i;
