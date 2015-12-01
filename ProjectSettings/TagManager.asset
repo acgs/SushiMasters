@@ -28,6 +28,15 @@ TagManager:
   - chair8_path
   - chair9_path
   - chair10_path
+  - mainmenu
+  - mainmenubuttons
+  - mainmenubackground
+  - howtoplaybackground
+  - howtoplaymenu
+  - howtoplaybutton
+  - creditsbackground
+  - creditsmenu
+  - creditsbutton
   layers:
   - Default
   - TransparentFX
