@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CustomerQueue : MonoBehaviour {
     public string[] path_names = {"chair1_path", "chair2_path", "chair3_path", "chair4_path", "chair5_path", "chair6_path", "chair7_path", "chair8_path", "chair9_path", "chair10_path"};
-    public Vector3[] path_starts = {new Vector3(0,0,0),new Vector3(3.700406f,2.539425f,0f),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0),new Vector3(0,0,0)};
+    public Vector3[] path_starts = {new Vector3(3.700406f,2.539425f,0),new Vector3(3.700406f,2.539425f,0f),new Vector3(3.435709f,-4.14347f,0),new Vector3(3.435709f,-4.14347f,0),new Vector3(0.04736757f,-4.587771f,0),new Vector3(0.04736757f,-4.587771f,0),new Vector3(-3.83127f,-1.901806f,0),new Vector3(-3.83127f,-1.901806f,0),new Vector3(-3.83127f,1.268468f,0),new Vector3(-3.83127f,1.268468f,0)};
     public Transform tourist_prefab;
     public Transform salaryman_prefab;
     public Transform student_prefab;

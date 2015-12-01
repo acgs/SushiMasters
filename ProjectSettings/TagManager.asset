@@ -18,6 +18,16 @@ TagManager:
   - plate_collider
   - makisushi
   - temakisushi
+  - chair1_path
+  - chair2_path
+  - chair3_path
+  - chair4_path
+  - chair5_path
+  - chair6_path
+  - chair7_path
+  - chair8_path
+  - chair9_path
+  - chair10_path
   layers:
   - Default
   - TransparentFX

@@ -109,7 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9b90eb8a7fe4053910c1b02cbf5792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathName: 
   type: tourist
+  initialScore: 10000
+  currentScore: 10000
+  scoreDeclineRate: 200
+  normalSprite: {fileID: 21300000, guid: ad975e734bca0407f94a9526878e1225, type: 3}
+  angrySprite: {fileID: 21300002, guid: ad975e734bca0407f94a9526878e1225, type: 3}
 --- !u!212 &21297796
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,8 +139,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: be56a37e1bdea40cb84523faa18eda14, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: ad975e734bca0407f94a9526878e1225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -158,6 +164,49 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: initialScore
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentScore
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: scoreDeclineRate
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad975e734bca0407f94a9526878e1225,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad975e734bca0407f94a9526878e1225,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: angrySprite
+      value: 
+      objectReference: {fileID: 21300002, guid: ad975e734bca0407f94a9526878e1225,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

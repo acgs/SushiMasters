@@ -25,11 +25,11 @@ public class MakiGame : MonoBehaviour {
     public void buildGame(){
         //randomly change orientation of arrows
         foreach(GameObject arrow in arrows){
-            /*if(Random.Range(-1,1) <= 0){
+            if(Random.Range(0,10) <= 5){
                 Debug.Log("Swapping orientation of this arrow.");
-                arrow.GetComponent<Transform>().localScale = Vector3.Scale(arrow.GetComponent<Transform>().localScale , new Vector3(1.0F, -1.0F, 1.0F)); //scale in y
+                //arrow.GetComponent<Transform>().localScale = Vector3.Scale(arrow.GetComponent<Transform>().localScale , new Vector3(1.0F, -1.0F, 1.0F)); //scale in y
                 arrow.GetComponent<Arrow>().toggleRightToLeft();
-            }*/
+            }
             //show arrows
             arrow.GetComponent<Renderer>().enabled = true;
             //enable colliders of all children of arrow
