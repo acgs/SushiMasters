@@ -105,6 +105,7 @@ MonoBehaviour:
   scoreDeclineRate: 400
   normalSprite: {fileID: 21300002, guid: 2f7e3b427790b44b984ceb49413eb9b1, type: 3}
   angrySprite: {fileID: 21300000, guid: 2f7e3b427790b44b984ceb49413eb9b1, type: 3}
+  score: {fileID: 11407000, guid: b5ea12a6f143543759b6fa834b13f8fb, type: 2}
 --- !u!114 &11486596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +162,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .163168907
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 11407000, guid: b5ea12a6f143543759b6fa834b13f8fb,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129986}

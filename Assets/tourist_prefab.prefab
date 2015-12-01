@@ -116,6 +116,7 @@ MonoBehaviour:
   scoreDeclineRate: 200
   normalSprite: {fileID: 21300000, guid: ad975e734bca0407f94a9526878e1225, type: 3}
   angrySprite: {fileID: 21300002, guid: ad975e734bca0407f94a9526878e1225, type: 3}
+  score: {fileID: 0}
 --- !u!212 &21297796
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -208,6 +209,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 11407000, guid: b5ea12a6f143543759b6fa834b13f8fb,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154508}

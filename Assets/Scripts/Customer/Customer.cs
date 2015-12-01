@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Customer : MonoBehaviour {
@@ -14,6 +15,7 @@ public class Customer : MonoBehaviour {
     public float scoreDeclineRate; //amount to decrement every second
     public Sprite normalSprite;
     public Sprite angrySprite;
+    public Text score;
     // Use this for initialization
     void Start () {
         transform.GetChild(0).GetComponent<Collider>().enabled = false;
@@ -24,6 +26,7 @@ public class Customer : MonoBehaviour {
         if(spriteRenderer.sprite == null){
             spriteRenderer.sprite = normalSprite;
         }
+        score = GameObject.FindGameObjectsWithTag("scoreText")[0].GetComponent<Text>();
     }
 
     // Update is called once per frame

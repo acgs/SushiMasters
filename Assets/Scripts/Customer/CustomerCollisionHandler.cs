@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CustomerCollisionHandler : MonoBehaviour {
 
@@ -33,7 +34,13 @@ public class CustomerCollisionHandler : MonoBehaviour {
 
     void onTriggered(GameObject sushi){
         GameObject.FindGameObjectsWithTag(transform.parent.GetComponent<Customer>().pathName)[0].GetComponent<chair>().hasCustomer = false;
-            Destroy(sushi);
-            Destroy(transform.parent.gameObject);
+
+        //update score
+        GameObject.FindGameObjectsWithTag("score")[0].GetComponent<score>().gameScore = GameObject.FindGameObjectsWithTag("score")[0].GetComponent<score>().gameScore + (int) Math.Floor(transform.parent.gameObject.GetComponent<Customer>().currentScore);
+        //update score display
+        transform.parent.gameObject.GetComponent<Customer>().score.text = "Score: " + GameObject.FindGameObjectsWithTag("score")[0].GetComponent<score>().gameScore;
+        //destroy sushi and parent
+        Destroy(sushi);
+        Destroy(transform.parent.gameObject);
     }
 }

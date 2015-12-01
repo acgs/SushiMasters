@@ -28,6 +28,7 @@ TagManager:
   - chair8_path
   - chair9_path
   - chair10_path
+<<<<<<< Updated upstream
   - mainmenu
   - mainmenubuttons
   - mainmenubackground
@@ -37,6 +38,10 @@ TagManager:
   - creditsbackground
   - creditsmenu
   - creditsbutton
+=======
+  - score
+  - scoreText
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
