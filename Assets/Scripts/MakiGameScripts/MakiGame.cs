@@ -23,6 +23,9 @@ public class MakiGame : MonoBehaviour {
     }
 
     public void buildGame(){
+		foreach(GameObject makibackground in GameObject.FindGameObjectsWithTag("makibackground"))
+			makibackground.GetComponent<Renderer>().enabled = true;
+		
         //randomly change orientation of arrows
         foreach(GameObject arrow in arrows){
             if(Random.Range(0,10) <= 5){
@@ -46,10 +49,13 @@ public class MakiGame : MonoBehaviour {
     }
     public void winGame(){
         Debug.Log("Beat the Maki game!");
-        Transform makiClone = (Transform) Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
+		Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
+        //Transform makiClone = (Transform) Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
         cleanup();
     }
     void cleanup(){
+		foreach(GameObject makibackground in GameObject.FindGameObjectsWithTag("makibackground"))
+			makibackground.GetComponent<Renderer>().enabled = false;
         //hide arrows and other objects, rebuild menu
         foreach(GameObject arrow in arrows){
             arrow.GetComponent<Renderer>().enabled = false;

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 161148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.48801804, z: .74076581}
-  m_LocalScale: {x: .0554082394, y: .0554082915, z: .0554082915}
+  m_LocalScale: {x: .155408233, y: .155408293, z: .0554082915}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,9 +54,9 @@ BoxCollider:
   m_GameObject: {fileID: 161148}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 8, z: 5.62536526}
+  m_Size: {x: 3, y: 3, z: 5.62536526}
   m_Center: {x: 0, y: 0, z: -.285631329}
 --- !u!114 &11450456
 MonoBehaviour:
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sushiType: maki
   initial_xPos: 0
-  initial_yPos: 2.48801804
+  initial_yPos: 2.5999999
   initial_zPos: .74076581
   plate: {fileID: 0}
   moving: 0
@@ -93,13 +93,15 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: dd6c4390eec4240bf9fe537fe1a1f232, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 65c8c432881eb624b8b84c3e17453b0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -114,7 +116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -134,7 +136,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initial_yPos
-      value: 2.48801804
+      value: 2.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: 65c8c432881eb624b8b84c3e17453b0c,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: .155408233
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: .155408293
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

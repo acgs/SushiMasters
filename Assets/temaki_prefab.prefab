@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 160152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.48801804, z: .74076581}
-  m_LocalScale: {x: .0554082394, y: .0554082915, z: 1}
+  m_LocalScale: {x: .125408202, y: .125408307, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,9 +38,9 @@ BoxCollider:
   m_GameObject: {fileID: 160152}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.5, y: 6.07999992, z: .200000003}
+  m_Size: {x: 3, y: 3, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11407210
 MonoBehaviour:
@@ -77,13 +77,15 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1c7928bfb75c548f78c7934c32ba7fe1, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 65c8c432881eb624b8b84c3e17453b0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -98,7 +100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -111,6 +113,27 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: initial_yPos
       value: 2.48801804
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 65c8c432881eb624b8b84c3e17453b0c,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: .125408202
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: .125408307
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
