@@ -46,7 +46,8 @@ public class MakiGame : MonoBehaviour {
     }
     public void winGame(){
         Debug.Log("Beat the Maki game!");
-        Transform makiClone = (Transform) Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
+		Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
+        //Transform makiClone = (Transform) Instantiate(maki_prefab, new Vector3(initial_xPos, initial_yPos, initial_zPos), Quaternion.identity);
         cleanup();
     }
     void cleanup(){

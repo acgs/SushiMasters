@@ -12,6 +12,15 @@ public class Level1Queue : TestQueue {
             if(i % 6 == 0){
                 customers[i] = "critic";
             }
+			else if(i % 5 == 0){
+				customers[i] = "regular";
+			}
+			else if(i % 7 == 0){
+				customers[i] = "salaryman";
+			}
+			else if(i % 4 == 0){
+				customers[i] = "student";
+			}
         }
         customer_times = new float[numCustomers];
         float timeDelay = 3.5f;

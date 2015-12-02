@@ -54,9 +54,9 @@ BoxCollider:
   m_GameObject: {fileID: 161148}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 8, z: 5.62536526}
+  m_Size: {x: 12, y: 12, z: 5.62536526}
   m_Center: {x: 0, y: 0, z: -.285631329}
 --- !u!114 &11450456
 MonoBehaviour:
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sushiType: maki
   initial_xPos: 0
-  initial_yPos: 2.48801804
+  initial_yPos: 2.5999999
   initial_zPos: .74076581
   plate: {fileID: 0}
   moving: 0
@@ -93,7 +93,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -114,7 +116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -134,7 +136,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initial_yPos
-      value: 2.48801804
+      value: 2.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

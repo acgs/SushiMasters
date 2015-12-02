@@ -8,6 +8,7 @@ public class CustomerQueue : MonoBehaviour {
     public Transform salaryman_prefab;
     public Transform student_prefab;
     public Transform critic_prefab;
+	public Transform regular_prefab;
     protected string[] customers;
     public float[] customer_times;
     public int[] customer_chair;
@@ -26,6 +27,9 @@ public class CustomerQueue : MonoBehaviour {
         if(prefabName == "critic"){
             return critic_prefab;
         }
+		if(prefabName == "regular"){
+			return regular_prefab;
+		}
         return null;
     }
 }

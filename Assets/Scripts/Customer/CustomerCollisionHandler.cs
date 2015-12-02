@@ -29,6 +29,12 @@ public class CustomerCollisionHandler : MonoBehaviour {
         {
             onTriggered(col.gameObject);
         }
+		if(transform.parent.GetComponent<Customer>().type == "regular" && col.gameObject.tag == "temakisushi"){
+			onTriggered(col.gameObject);
+		}
+		if(transform.parent.GetComponent<Customer>().type == "salaryman" && col.gameObject.tag == "temakisushi"){
+			onTriggered(col.gameObject);
+		}
     }
 
     void onTriggered(GameObject sushi){
