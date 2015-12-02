@@ -23,6 +23,9 @@ public class MakiGame : MonoBehaviour {
     }
 
     public void buildGame(){
+		foreach(GameObject makibackground in GameObject.FindGameObjectsWithTag("makibackground"))
+			makibackground.GetComponent<Renderer>().enabled = true;
+		
         //randomly change orientation of arrows
         foreach(GameObject arrow in arrows){
             if(Random.Range(0,10) <= 5){
@@ -51,6 +54,8 @@ public class MakiGame : MonoBehaviour {
         cleanup();
     }
     void cleanup(){
+		foreach(GameObject makibackground in GameObject.FindGameObjectsWithTag("makibackground"))
+			makibackground.GetComponent<Renderer>().enabled = false;
         //hide arrows and other objects, rebuild menu
         foreach(GameObject arrow in arrows){
             arrow.GetComponent<Renderer>().enabled = false;
