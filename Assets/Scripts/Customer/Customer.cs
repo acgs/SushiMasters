@@ -24,6 +24,18 @@ public class Customer : MonoBehaviour {
         if(spriteRenderer.sprite == null){
             spriteRenderer.sprite = normalSprite;
         }
+		if(pathName == "chair5_path" || pathName == "chair6_path"){
+			//rotate collider by 90 degrees
+			transform.GetChild(0).Rotate(new Vector3(0,0,90));
+		}
+		if(pathName == "chair4_path" ){
+			//rotate collider by -45 degrees
+			transform.GetChild(0).Rotate(new Vector3(0,0,-45));
+		}
+		if(pathName == "chair7_path"){
+			//rotate collider by 45 degrees
+			transform.GetChild(0).Rotate(new Vector3(0,0,45));
+		}
     }
 
     // Update is called once per frame
