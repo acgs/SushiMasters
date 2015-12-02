@@ -3,45 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - sushiselectmenu
-  - makigame
-  - makiarrow
-  - sushimenu
-  - temakibackground
-  - temakigame
-  - prepboard
-  - nori
-  - rice
-  - fish
-  - plate
-  - plate_collider
-  - makisushi
-  - temakisushi
-  - chair1_path
-  - chair2_path
-  - chair3_path
-  - chair4_path
-  - chair5_path
-  - chair6_path
-  - chair7_path
-  - chair8_path
-  - chair9_path
-  - chair10_path
-<<<<<<< Updated upstream
-  - mainmenu
-  - mainmenubuttons
-  - mainmenubackground
-  - howtoplaybackground
-  - howtoplaymenu
-  - howtoplaybutton
-  - creditsbackground
-  - creditsmenu
-  - creditsbutton
-=======
-  - score
-  - scoreText
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
