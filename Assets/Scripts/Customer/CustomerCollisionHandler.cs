@@ -19,10 +19,6 @@ public class CustomerCollisionHandler : MonoBehaviour {
         //Debug.Log(transform.parent.GetComponent<Customer>().type);
         if(transform.parent.GetComponent<Customer>().type == "tourist" && col.gameObject.tag == "makisushi")
         {
-<<<<<<< HEAD
-            GameObject.FindGameObjectsWithTag(transform.parent.GetComponent<Customer>().pathName)[0].GetComponent<chair>().hasCustomer = false;
-            Destroy(col.gameObject);
-=======
             onTriggered(col.gameObject);
         }
         if(transform.parent.GetComponent<Customer>().type == "critic" && col.gameObject.tag == "nigirisushi")
@@ -44,8 +40,6 @@ public class CustomerCollisionHandler : MonoBehaviour {
     void onTriggered(GameObject sushi){
         GameObject.FindGameObjectsWithTag(transform.parent.GetComponent<Customer>().pathName)[0].GetComponent<chair>().hasCustomer = false;
             Destroy(sushi);
->>>>>>> fixedaftermerge
             Destroy(transform.parent.gameObject);
-        }
     }
 }

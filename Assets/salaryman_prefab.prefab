@@ -105,6 +105,7 @@ MonoBehaviour:
   scoreDeclineRate: 250
   normalSprite: {fileID: 21300004, guid: 389f5b8dc017239489cca436810860f6, type: 3}
   angrySprite: {fileID: 21300006, guid: 389f5b8dc017239489cca436810860f6, type: 3}
+  score: {fileID: 0}
 --- !u!114 &11493256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,14 +135,12 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300004, guid: 389f5b8dc017239489cca436810860f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -166,6 +165,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: currentScore
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

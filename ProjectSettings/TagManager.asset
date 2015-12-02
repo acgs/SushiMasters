@@ -3,9 +3,6 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags: []
-=======
   tags:
   - sushiselectmenu
   - makigame
@@ -32,7 +29,6 @@ TagManager:
   - chair9_path
   - chair10_path
   - makibackground
->>>>>>> fixedaftermerge
   layers:
   - Default
   - TransparentFX
